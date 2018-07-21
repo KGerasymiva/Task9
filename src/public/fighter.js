@@ -9,21 +9,23 @@ export default class Fighter {
     setDamage(damage) {
         this.health -= damage;
         if (this.health <= 0) {
-            console.log("The health is lost");
-            this.knockout();
-        } else console.log("health: ", this.health);
+            console.log("The ",this.name,"'s health is lost");
+            return this.knockout();
+        } else console.log("The", this.name, "'s health", this.health);
     }
 
     hit(enemy, point) {
-        this.damage = point * this.power;
-        enemy.setDamage(this.damage);
+        console.log("Fighter ", this.name, " hit ", enemy.name );
+        let damage = point * this.power;
+        console.log("and made him damage" , damage);
+        return enemy.setDamage(damage);
     }
 
     knockout() {
         let promise = new Promise((resolve, reject) => {
             setTimeout(() => {
-                console.log("time is over");
-                resolve("time is over");
+                console.log("Time is over", this.name);
+                resolve("over");
             }, 500);
         });
         return promise;

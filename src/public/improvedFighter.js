@@ -4,8 +4,8 @@ export class ImprovedFighter extends Fighter {
     constructor(name, power, health) {
         super(name, power, health);
     }
-
-    doubleHit(enemy, point) {
+//override of base class function. Function hit() works like doubleHit()
+    hit(enemy, point) {
         super.hit(enemy, point * 2);
     }
 }
