@@ -2,8 +2,14 @@
 export default async function fight(fighter, improvedFighter, ...point) {
     let counter = 0;
     console.log("1");
+    let result = "";
     while (1) {
-        let result = await fighter.hit(improvedFighter, point[counter]);
+        if (counter%2===0) {
+            result = await fighter.hit(improvedFighter, point[counter]);
+        }
+        else {
+            result = await improvedFighter.doubleHit(fighter, point[counter]);
+        }
         if (result === "time is over") {
             console.log("Game is over");
             return;
