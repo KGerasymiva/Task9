@@ -10,7 +10,7 @@ export default class Fighter {
         this.health -= damage;
         if (this.health <= 0) {
             console.log("The ",this.name,"'s health is lost");
-            return this.knockout();
+            return ;
         } else console.log("The", this.name, "'s health", this.health);
     }
 
@@ -24,7 +24,7 @@ export default class Fighter {
     knockout() {
         let promise = new Promise((resolve, reject) => {
             setTimeout(() => {
-                console.log("Time is over", this.name);
+                console.log("Time is over for", this.name);
                 resolve("over");
             }, 500);
         });
